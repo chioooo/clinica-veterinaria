@@ -15,14 +15,13 @@ const closeModal = () => showModal.value = false
 
 onMounted(async () => {
   try {
-    const response = await fetch('http://localhost/EjMascota/php/get_citas.php')
+    const response = await fetch('http://localhost/clinica-veterinaria/php/get_citas.php')
     citas.value = await response.json()
 
-    const resMascotas = await fetch('http://localhost/EjMascota/php/get_mascota.php')
+    const resMascotas = await fetch('http://localhost/clinica-veterinaria/php/get_mascota.php')
     mascotas.value = await resMascotas.json()
-    console.log("Mascotas:", mascotas.value)
 
-    const resVet = await fetch('http://localhost/EjMascota/php/get_veterinarios.php')
+    const resVet = await fetch('http://localhost/clinica-veterinaria/php/get_veterinarios.php')
     veterinarios.value = await resVet.json()
   } catch (error) {
     console.error('Error al obtener datos:', error)
@@ -40,14 +39,13 @@ const registrarCita = async () => {
 
     console.log("Datos enviados al servidor:", datos)
 
-    const respuesta = await fetch('http://localhost/EjMascota/php/registro_cita.php', {
+    const respuesta = await fetch('http://localhost/clinica-veterinaria/php/registro_cita.php', {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(datos)
     })
 
     const resultado = await respuesta.json()
-    console.log("Respuesta del servidor:", resultado)
 
     if (!resultado.error) {
       id_mascota.value = null
@@ -56,7 +54,7 @@ const registrarCita = async () => {
       motivo.value = null
       closeModal()
 
-      const response = await fetch('http://localhost/EjMascota/php/get_citas.php')
+      const response = await fetch('http://localhost/clinica-veterinaria/php/get_citas.php')
       citas.value = await response.json()
     } else {
       alert("Error: " + resultado.mensaje)

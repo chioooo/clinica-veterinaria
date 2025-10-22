@@ -15,7 +15,7 @@ const calcularCosto = async () => {
   }
 
   try {
-    const respuesta = await fetch("http://localhost/Ejmascota/php/control.php", {
+    const respuesta = await fetch("http://localhost/clinica-veterinaria/php/control.php", {
       method: "POST",
       headers: {"Content-Type": "application/x-www-form-urlencoded"},
       body: new URLSearchParams({razas: razaSeleccionada.value}),

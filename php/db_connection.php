@@ -7,7 +7,7 @@ $host = "localhost";
 $user = "root";
 $password = "";
 $database = "ClinicaVeterinaria";
-$port = 3307;
+$port = 3306;
 
 $con = new mysqli($host, $user, $password, $database, $port);
 

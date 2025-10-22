@@ -21,7 +21,7 @@ const registrarMascota = async () => {
   };
   console.log("Enviando datos:", datos);  
   try {
-    const respuesta = await fetch("http://localhost/EjMascota/php/RegistrarMascota.php", {
+    const respuesta = await fetch("http://localhost/clinica-veterinaria/php/RegistrarMascota.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(datos),

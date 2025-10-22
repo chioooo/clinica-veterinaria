@@ -15,7 +15,7 @@ const obtenerConsulta = async () => {
   }
 
   try {
-    const respuesta = await fetch("http://localhost/Ejmascota/php/control_consulta.php", {
+    const respuesta = await fetch("http://localhost/clinica-veterinaria/php/control_consulta.php", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams({ nombrePerro: perroSeleccionado.value }),
