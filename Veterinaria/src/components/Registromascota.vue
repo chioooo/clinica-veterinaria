@@ -30,7 +30,7 @@ const registrarMascota = async () => {
     const resultado = await respuesta.json();
     mensaje.value = resultado.mensaje || resultado.error;
     
-    // Limpiar los campos después del registro exitoso
+    // Limpiar los campos después del registro exitoso holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     if (!resultado.error) {
       num.value = ""; 
       mascota.value = "";
