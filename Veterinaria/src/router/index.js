@@ -4,6 +4,7 @@ import Consulta from "../components/Consulta.vue";
 import Directivas from "../components/Directivas.vue";
 import Animaciones from "../components/Animaciones.vue";
 import Registromascota from "../components/Registromascota.vue";
+import Citas from "../components/Citas.vue";
 
 const routes = [
   { path: '/', component: () => import('../components/HelloWorld.vue') },
@@ -11,7 +12,8 @@ const routes = [
     { path: '/consulta', component: Consulta },
     { path: '/directivas', component: Directivas},
     { path: '/animaciones', component: Animaciones},
-    { path: '/registro', component: Registromascota}
+    { path: '/registro', component: Registromascota},
+    { path: '/citas', component: Citas}
   
 ];
 

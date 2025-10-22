@@ -45,10 +45,6 @@ const registrarMascota = async () => {
 
 <template>
   <div id="app">
-    <header class="header">
-      <h2>Clínica y Estética Veterinaria</h2>
-    </header>
-
     <main class="contenido">
       <section>
         <h3>Registro de Mascota</h3>
@@ -75,12 +71,7 @@ const registrarMascota = async () => {
 </template>
 
 <style scoped>
-.header {
-  background: #007bff;
-  color: white;
-  text-align: center;
-  padding: 15px;
-}
+
 
 .contenido {
   padding: 20px;

@@ -11,15 +11,26 @@ import { RouterLink, RouterView } from 'vue-router';
       <router-link to="/directivas" class="nav-link">Directivas</router-link>
       <router-link to="/animaciones" class="nav-link">Animaciones</router-link>
       <router-link to="/registro" class="nav-link">Registro</router-link>
+      <router-link to="/citas" class="nav-link">Citas</router-link>
     </nav>
 
     <main class="content">
+      <header class="header">
+        <h2>Clínica y Estética Veterinaria</h2>
+      </header>
       <router-view></router-view>
     </main>
   </div>
 </template>
 
 <style scoped>
+.header {
+  background: #007bff;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+
 /* Estilo general de la app */
 .app-container {
   display: flex;

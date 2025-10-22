@@ -45,9 +45,6 @@ const obtenerConsulta = async () => {
 
 <template>
   <div class="container">
-    <header class="header">
-      <h2>Clínica y Estética Veterinaria</h2>
-    </header>
 
     <main class="contenido">
       <section>

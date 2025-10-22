@@ -42,9 +42,6 @@ const calcularCosto = async () => {
 
 <template>
   <div class="container">
-    <header class="header">
-      <h2>Clínica y Estética Veterinaria</h2>
-    </header>
 
     <nav class="menu">
       <h3>Menú</h3>
