@@ -5,6 +5,7 @@ import Directivas from "../components/Directivas.vue";
 import Animaciones from "../components/Animaciones.vue";
 import Registromascota from "../components/Registromascota.vue";
 import Citas from "../components/Citas.vue";
+import Inventario from "../components/Inventario.vue";
 
 const routes = [
   { path: '/', component: () => import('../components/HelloWorld.vue') },
@@ -13,7 +14,9 @@ const routes = [
     { path: '/directivas', component: Directivas},
     { path: '/animaciones', component: Animaciones},
     { path: '/registro', component: Registromascota},
-    { path: '/citas', component: Citas}
+    { path: '/citas', component: Citas},
+    {path: '/inventario', component: Inventario}
+
   
 ];
 
