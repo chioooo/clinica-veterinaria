@@ -13,13 +13,15 @@ if (!$data) {
     exit();
 }
 
-if (isset($data->num) && isset($data->nombre) && isset($data->raza) && isset($data->dueño)) {
-    $num = mysqli_real_escape_string($con, $data->num);
+if (isset($data->nombre) && isset($data->especie) && isset($data->raza) && isset($data->edad) && isset($data->peso) && isset($data->id_cliente)) {
     $nombre = mysqli_real_escape_string($con, $data->nombre);
+    $especie = mysqli_real_escape_string($con, $data->especie);
     $raza = mysqli_real_escape_string($con, $data->raza);
-    $dueño = mysqli_real_escape_string($con, $data->dueño);
+    $edad = mysqli_real_escape_string($con, $data->edad);
+    $peso = mysqli_real_escape_string($con, $data->peso);
+    $id_cliente = mysqli_real_escape_string($con, $data->id_cliente);
 
-    $query = "INSERT INTO mascota (num, mascota, raza, dueño) VALUES ('$num', '$nombre', '$raza', '$dueño')";
+    $query = "INSERT INTO mascotas (nombre, especie, raza, edad, peso, id_cliente) VALUES ('$nombre', '$especie', '$raza', '$edad', '$peso', '$id_cliente')";
     
     if (mysqli_query($con, $query)) {
         echo json_encode(["mensaje" => "Mascota registrada correctamente"]);

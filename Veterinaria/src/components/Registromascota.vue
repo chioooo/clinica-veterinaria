@@ -1,23 +1,28 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 
-const num = ref("");
-const mascota = ref("");
+const especie = ref("");
+const nombre = ref("");
 const raza = ref("");
-const dueño = ref("");
+const edad = ref("");
+const peso = ref("");
+const id_cliente = ref("");
 const mensaje = ref("");
+const clientes = ref([]);
 
 const registrarMascota = async () => {
-  if (!num.value ||!mascota.value || !raza.value || !dueño.value) {
+  if (!nombre.value ||!especie.value || !raza.value || !edad.value || !peso.value || !id_cliente.value) {
     mensaje.value = "Todos los campos son obligatorios";
     return;
   }
 
   const datos = {
-    num: num.value,
-    nombre: mascota.value,
+    nombre: nombre.value,
+    especie: especie.value,
     raza: raza.value,
-    dueño: dueño.value,
+    edad: edad.value,
+    peso: peso.value,
+    id_cliente: id_cliente.value,
   };
   console.log("Enviando datos:", datos);  
   try {
@@ -32,15 +37,26 @@ const registrarMascota = async () => {
     
     // Limpiar los campos después del registro exitoso holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     if (!resultado.error) {
-      num.value = ""; 
-      mascota.value = "";
+      nombre.value = "";
+      especie.value = "";
       raza.value = "";
-      dueño.value = "";
+      edad.value = "";
+      peso.value = "";
+      id_cliente.value = "";
     }
   } catch (error) {
     mensaje.value = "Error de conexión con el servidor";
   }
 };
+
+onMounted(async () => {
+  try {
+    const response = await fetch('http://localhost/clinica-veterinaria/php/get_clientes.php')
+    clientes.value = await response.json()
+  } catch (error) {
+    console.error('Error al obtener datos:', error)
+  }
+})
 </script>
 
 <template>
@@ -49,17 +65,28 @@ const registrarMascota = async () => {
       <section>
         <h3>Registro de Mascota</h3>
         <form @submit.prevent="registrarMascota">
-          <label>Cve:</label>
-          <input type="text" v-model="num" required /> 
-          
           <label>Nombre de la Mascota:</label>
-          <input type="text" v-model="mascota" required />
+          <input type="text" v-model="nombre" required />
+
+          <label>Especie:</label>
+          <input type="text" v-model="especie" required />
 
           <label>Raza:</label>
           <input type="text" v-model="raza" required />
 
-          <label>Nombre del Dueño:</label>
-          <input type="text" v-model="dueño" required />
+          <label>Edad:</label>
+          <input type="text" v-model="edad" required />
+
+          <label>Peso:</label>
+          <input type="text" v-model="peso" required />
+
+          <label>Cliente:</label>
+          <select v-model="id_cliente" required>
+            <option value="" disabled>Selecciona un cliente</option>
+            <option v-for="v in clientes" :key="v.id_cliente" :value="v.id_cliente">
+              {{ v.nombre }}
+            </option>
+          </select>
 
           <button type="submit">Registrar</button>
         </form>
